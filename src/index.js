@@ -1,8 +1,8 @@
 "use strict";
-var APP_ID = undefined;  // TODO replace with your app ID (OPTIONAL).
+var APP_ID = "amzn1.ask.skill.12c780de-9458-4648-b49f-98a259b74e42";  // TODO replace with your app ID (OPTIONAL).
 
 var ANSWER_COUNT = 4; // The number of possible answers per trivia question.
-var GAME_LENGTH = 5;  // The number of questions per trivia game.
+var GAME_LENGTH = 3;  // The number of questions per trivia game.
 var GAME_STATES = {
     TRIVIA: "_TRIVIAMODE", // Asking trivia questions.
     START: "_STARTMODE", // Entry point, start the game.
@@ -17,8 +17,8 @@ var questions = require("./questions");
 var languageString = {
     "en": {
         "translation": {
-            "QUESTIONS" : questions["QUESTIONS_EN_US"],
-            "GAME_NAME" : "Reindeer Trivia", // Be sure to change this for your skill.
+            "QUESTIONS" : questions["QUESTIONS_EN"],
+            "GAME_NAME" : "Cheah pet Trivia", // Be sure to change this for your skill.
             "HELP_MESSAGE": "I will ask you %s multiple choice questions. Respond with the number of the answer. " +
             "For example, say one, two, three, or four. To start a new game at any time, say, start game. ",
             "REPEAT_QUESTION_MESSAGE": "To repeat the last question, say, repeat. ",
@@ -44,20 +44,20 @@ var languageString = {
     },
     "en-US": {
         "translation": {
-            "QUESTIONS" : questions["QUESTIONS_EN_US"],
-            "GAME_NAME" : "American Reindeer Trivia" // Be sure to change this for your skill.
+            "QUESTIONS" : questions["QUESTIONS_EN"],
+            "GAME_NAME" : "Cheah pet Trivia" // Be sure to change this for your skill.
         }
     },
     "en-GB": {
         "translation": {
-            "QUESTIONS" : questions["QUESTIONS_EN_GB"],
-            "GAME_NAME" : "British Reindeer Trivia" // Be sure to change this for your skill.
+            "QUESTIONS" : questions["QUESTIONS_EN"],
+            "GAME_NAME" : "Cheah pet Trivia" // Be sure to change this for your skill.
         }
     },
     "de": {
         "translation": {
-            "QUESTIONS" : questions["QUESTIONS_DE_DE"],
-            "GAME_NAME" : "Wissenswertes über Rentiere in Deutsch", // Be sure to change this for your skill.
+            "QUESTIONS" : questions["QUESTIONS_EN"],
+            "GAME_NAME" : "Cheah pet Trivia", // Be sure to change this for your skill.
             "HELP_MESSAGE": "Ich stelle dir %s Multiple-Choice-Fragen. Antworte mit der Zahl, die zur richtigen Antwort gehört. " +
             "Sage beispielsweise eins, zwei, drei oder vier. Du kannst jederzeit ein neues Spiel beginnen, sage einfach „Spiel starten“. ",
             "REPEAT_QUESTION_MESSAGE": "Wenn die letzte Frage wiederholt werden soll, sage „Wiederholen“ ",
@@ -84,11 +84,11 @@ var languageString = {
 };
 
 var Alexa = require("alexa-sdk");
-var APP_ID = undefined;  // TODO replace with your app ID (OPTIONAL).
+var APP_ID = "amzn1.ask.skill.12c780de-9458-4648-b49f-98a259b74e42";  // TODO replace with your app ID (OPTIONAL).
 
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
-    alexa.appId = APP_ID;
+    alexa.APP_ID = APP_ID;
     // To enable string internationalization (i18n) features, set a resources object.
     alexa.resources = languageString;
     alexa.registerHandlers(newSessionHandlers, startStateHandlers, triviaStateHandlers, helpStateHandlers);
